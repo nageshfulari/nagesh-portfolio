@@ -24,7 +24,7 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:8080/api/contact", {
+      const res = await fetch("https://nagesh-portfolio-jjs1.onrender.com/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
