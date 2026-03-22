@@ -6,4 +6,4 @@ COPY . .
 
 RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["sh", "-c", "java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=$PORT"]
