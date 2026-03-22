@@ -21,30 +21,35 @@ export default function Contact() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const res = await fetch("https://nagesh-portfolio-jjs1.onrender.com/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(form)
-      });
+  try {
+    const res = await fetch("https://nagesh-portfolio-jjs1.onrender.com/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(form)
+    });
 
-      const data = await res.text();
-      alert(data);
-
-      setForm({
-        name: "",
-        email: "",
-        message: ""
-      });
-
-    } catch (err) {
-      alert("Something went wrong ❌");
+    if (!res.ok) {
+      throw new Error("Server Error");
     }
-  };
+
+    const data = await res.text();
+    alert(data);
+
+    setForm({
+      name: "",
+      email: "",
+      message: ""
+    });
+
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong ❌");
+  }
+};
 
  return (
   <motion.section

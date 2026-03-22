@@ -3,8 +3,8 @@ package com.example.demo.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")   // base path
-@CrossOrigin(origins = "https://nagesh-portfolio-ruddy.vercel.app") // allow frontend
+@RequestMapping("/api")
+@CrossOrigin(origins = "*")   // allow frontend
 public class ContactController {
 
     @PostMapping("/contact")

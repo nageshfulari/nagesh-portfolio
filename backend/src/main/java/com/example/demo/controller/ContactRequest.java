@@ -6,7 +6,8 @@ public class ContactRequest {
     private String email;
     private String message;
 
-    // Getters and Setters
+    public ContactRequest() {}
+
     public String getName() {
         return name;
     }
